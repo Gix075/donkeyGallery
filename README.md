@@ -28,24 +28,28 @@ On the following code you can see all plugin options setted at the default value
 $(document).on('ready', function(){
   $("#your-gallery-id").donkeyGallery({
   
-      webservice : "dnk-gallery/php/gallery.webservice.php", 
-      galleryPath : "dnk-gallery/images/your-gallery-dir/", // gallery path must end with a slash
-      subdomain: "",
-      style: "default",
-      color: "default",
+      webservice : "dnk-gallery/php/gallery.webservice.php", // link to php gallery file
+      galleryPath : "dnk-gallery/images/your-gallery-dir/", // gallery dir path. This option must end with a slash
+      subdomain: "", // this option is needed in case of a sub-dir installation (see below more information about this)
+      style: "default", // this option define a gallery style
+      color: "default", // this option define a style color
+      
+      // thumbnails settings
       thumbs: {
-          thumbW: 150,
-          thumbH: 150,
-          thumbsGen: false
+          thumbW: 150, // thumb width
+          thumbH: 150, // thumb height
+          thumbsGen: false // force to generate thumb each time and not only if is nedeed
       },
+      // fancybox settings
       fancybox : {
-          active: true,
-          galleryGroup: "donkeyGallery",
-          linkClass: "dnk-gallery-link"
+          active: true, // fancybox activation
+          galleryGroup: "donkeyGallery", // this option define a group for fancybox gallery view
+          linkClass: "dnk-gallery-link" // this option define a class for the fancybox toggle click
       },
+      // pagination settings
       pagination: {
-          active: true,
-          pageItems: 4
+          active: true, // easy paginate activation
+          pageItems: 4 // this option define the items showed on each gallery page
       }
   
   });
@@ -77,8 +81,11 @@ Styles and Colors
 On gallery plugin configuration you can use the following styles and colors:
 * STYLES: *squared* - *tin-squared* - *circle*
 * COLORS: *white* - *black* - *gray*
+* 
 
-
+Installation on sub-dir
+------------------------
+If you install donkeyGallery on a sub-dir of your site root, you need to specify the path of subdir (relative at site root), using the plugin option **subdir : "/here/your/subdir/path/"**
 
 Helper Plugins
 ---------------
