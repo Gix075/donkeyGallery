@@ -1,0 +1,293 @@
+/*!
+ *
+ *  donkeyGallery - [v1.0.0]
+ *  asynchronous ajax/php dynamic gallery
+ *  webPage: http://factory.brainleaf.eu/donkeyGallery/
+ *  githubPage: https://github.com/Gix075/donkeyGallery
+ *
+ *  (c)2014 by BRAINLEAF Communication
+ *  Made by Gildo Giuliani
+ *  Released under MIT License
+ *  Date: 31/01/2014
+ *
+ *  Please, report any bugs at: https://github.com/Gix075/donkeyGallery/issues
+ *
+
+*/
+.dnk-gallery-loader {
+    background-image: url(../assets/ajax-loader-black.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 200px;
+}
+
+.dnk-gallery {
+     display: none;
+}
+
+.dnk-gallery-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+}
+.dnk-gallery-list li {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.dnk-gallery-list li img {
+    vertical-align: middle;
+    -webkit-transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease;
+}
+
+.dnk-gallery ol {
+    list-style-type: none;
+    margin: 10px 0 0 0;
+    padding:0;
+}
+
+.dnk-gallery ol li {
+    margin: 0 5px 0 0;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-transition: background 0.2s ease, color 0.2s ease;
+            transition: background 0.2s ease, color 0.2s ease;
+    
+}
+.dnk-gallery ol li:hover {
+    
+}
+.dnk-gallery ol li.active,
+.dnk-gallery ol li.active:hover {
+    font-weight: 700;
+}
+.dnk-gallery ol li.prev:after {
+   content: " - ";
+}
+.dnk-gallery ol li.next:before {
+   content: " - ";
+}
+
+
+/* ################################################################## */
+/* GALLERY STYLES */
+/* ################################################################## */
+
+
+/* squared */
+/* ================================================================== */
+.squared.dnk-gallery-list li {
+    padding: 20px;
+} 
+.squared.dnk-gallery-list li:hover > img,
+.squared.dnk-gallery-list li:hover > a img {
+    opacity: 0.7;
+}
+
+ol.squared  {
+    list-style-type: none;
+    margin: 10px 0 0 0;
+    padding:0;
+}
+
+ol.squared li {
+    margin: 0 10px 0 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 10px;
+    
+}
+ol.squared li:hover {
+}
+ol.squared li.active,
+ol.squared li.active:hover {
+}
+ol.squared li.prev:after {
+   content: "";
+}
+ol.squared li.next:before {
+   content: "";
+}
+
+
+/* tin-squared */
+/* ================================================================== */
+.tin-squared.dnk-gallery-list li {
+    padding: 5px;
+} 
+.tin-squared.dnk-gallery-list li:hover > img,
+.tin-squared.dnk-gallery-list li:hover > a img {
+    opacity: 0.7;
+}
+ol.tin-squared  {
+    list-style-type: none;
+    margin: 10px 0 0 0;
+    padding:0;
+}
+
+ol.tin-squared li {
+    margin: 0 5px 0 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 1px 4px;
+    
+}
+ol.tin-squared li:hover {
+}
+ol.tin-squared li.active,
+ol.tin-squared li.active:hover {
+}
+ol.tin-squared li.prev:after {
+   content: "";
+}
+ol.tin-squared li.next:before {
+   content: "";
+}
+
+/* circle */
+/* ================================================================== */
+.circle.dnk-gallery-list li {
+    padding: 5px;
+    border-radius: 50%;
+} 
+.circle.dnk-gallery-list li img {
+    border-radius: 50%;
+}
+.circle.dnk-gallery-list li:hover > img,
+.circle.dnk-gallery-list li:hover > a img {
+    opacity: 0.7;
+}
+ol.circle  {
+    list-style-type: none;
+    margin: 10px 0 0 0;
+    padding:0;
+}
+
+ol.circle li {
+    margin: 0 5px 0 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    text-indent: -9999px;
+    border-radius: 50%;
+    
+}
+ol.circle li:hover {
+}
+ol.circle li.active,
+ol.circle li.active:hover {
+}
+ol.circle li.prev {
+    text-indent: 0;
+    border-radius: 8px;
+    width: auto;
+    padding: 0 10px;
+    line-height: 20px;
+}
+ol.circle li.next {
+    text-indent: 0;
+    border-radius: 8px;
+    width: auto;
+    padding: 0 10px;
+    line-height: 20px;
+}
+ol.circle li.prev:after {
+   content: "";
+}
+ol.circle li.next:before {
+   content: "";
+}
+/* ################################################################## */
+/* COLORS */
+/* ################################################################## */
+
+
+/* black */
+/* ================================================================== */
+.black.dnk-gallery-list li {
+    background-color: #000;
+} 
+
+ol.squared.black li,
+ol.tin-squared.black li,
+ol.circle.black li {
+    background-color: #000;
+    color: #fff;
+    
+}
+ol.squared.black li:hover,
+ol.tin-squared.black li:hover,
+ol.circle.black li:hover {
+    background-color: #999;
+    color: #fff;
+}
+ol.squared.black li.active,
+ol.squared.black li.active:hover,
+ol.tin-squared.black li.active,
+ol.tin-squared.black li.active:hover,
+ol.circle.black li.active,
+ol.circle.black li.active:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* white */
+/* ================================================================== */
+.white.dnk-gallery-list li {
+    background-color: #fff;
+} 
+
+ol.squared.white li,
+ol.tin-squared.white li,
+ol.circle.white li {
+    background-color: #fff;
+    color: #555;
+}
+ol.squared.white li:hover,
+ol.tin-squared.white li:hover,
+ol.circle.white li:hover {
+    background-color: #ccc;
+    color: #555;
+}
+ol.squared.white li.active,
+ol.squared.white li.active:hover,
+ol.tin-squared.white li.active,
+ol.tin-squared.white li.active:hover,
+ol.circle.white li.active,
+ol.circle.white li.active:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+
+/* gray */
+/* ================================================================== */
+.gray.dnk-gallery-list li {
+    background-color: #ccc;
+} 
+
+ol.squared.gray li,
+ol.tin-squared.gray li,
+ol.circle.gray li {
+    background-color: #ccc;
+    color: #555;
+    
+}
+ol.squared.gray li:hover,
+ol.tin-squared.gray li:hover,
+ol.circle.gray li:hover {
+    background-color: #efefef;
+}
+ol.squared.gray li.active,
+ol.squared.gray li.active:hover,
+ol.tin-squared.gray li.active,
+ol.tin-squared.gray li.active:hover,
+ol.circle.gray li.active,
+ol.circle.gray li.active:hover {
+    background-color: #999;
+    color: #fff;
+}
