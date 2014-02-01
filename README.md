@@ -81,7 +81,6 @@ Styles and Colors
 On gallery plugin configuration you can use the following styles and colors:
 * STYLES: *squared* - *tin-squared* - *circle*
 * COLORS: *white* - *black* - *gray*
-* 
 
 Installation on sub-dir
 ------------------------
