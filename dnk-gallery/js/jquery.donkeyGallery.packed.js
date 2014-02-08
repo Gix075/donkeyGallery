@@ -2149,6 +2149,11 @@
                 subdomain: "",
                 style: "default",
                 color: "default",
+                fluidStyle: {
+                    active : false,
+                    columns: 4, // accepted 1,2,3,4,5,10
+                    resonsive: false
+                },    
                 thumbs: {
                     thumbW: 150,
                     thumbH: 150,
@@ -2197,20 +2202,60 @@
                         data: dataArr,
                         dataType: 'json',
                         success: function(data){
+                            var fCssOpen = "";
+                            var fCssClose = "";
+                            
+                            if (settings.fluidStyle.active == true) {
+                                
+                                fCssOpen = '<div class="innerbox">';
+                                fCssClose = "</div>";
+                                
+                                var fluidClass = "";
+                                switch(settings.fluidStyle.columns){
+                                    case 1:
+                                        fluidClass = "fluid-100";
+                                        break;
+                                    case 2:
+                                        fluidClass = "fluid-50";
+                                        break;
+                                    case 3:
+                                        fluidClass = "fluid-33";
+                                        break;
+                                    case 4:
+                                        fluidClass = "fluid-25";
+                                        break;
+                                    case 5:
+                                        fluidClass = "fluid-20";
+                                        break;
+                                    case 10:
+                                        fluidClass = "fluid-10";
+                                        break;
+                                    default:
+                                        fluidClass = "fluid-25";
+                                        break;    
+                                    
+                                }// end switch
+                                
+                            }
+
                             var markup = '<div class="dnk-gallery">';
-                                markup += '<ul class="dnk-gallery-list">'
+                            if (settings.fluidStyle.active == true) {
+                                    markup += '<ul class="dnk-gallery-list fluid '+ fluidClass +'">';
+                            }else{
+                                    markup += '<ul class="dnk-gallery-list">'
+                            }
                             switch (settings.fancybox.active) {
                                 case false:
                                     var count = Object.keys(data.jsonNoFancy).length;
                                     for (var i=0; i<count; i++){
-                                        markup += "<li>"+ data.jsonNoFancy[i] +"</li>";
+                                        markup += "<li>"+ fCssOpen + data.jsonNoFancy[i] + fCssClose +"</li>";
                                     }
                                     break;
                                 
                                 case true :
                                     var count = Object.keys(data.jsonFancy).length;
                                     for (var i=0; i<count; i++){
-                                        markup += "<li>"+ data.jsonFancy[i] +"</li>";
+                                        markup += "<li>"+ fCssOpen + data.jsonFancy[i] + fCssClose +"</li>";
                                     }
                                     break;
                             }
@@ -2223,7 +2268,7 @@
                             }
                             $(element).find('a').addClass(settings.fancybox.linkClass);
                             $(element).find('a').attr('rel',settings.fancybox.galleryGroup);
-                            $(element).find('a').fancybox();
+                            $(element).find('a.'+ settings.fancybox.linkClass).fancybox();
                             
                             if (settings.pagination.active == true) {
                                 $(element).find('ul').easyPaginate({

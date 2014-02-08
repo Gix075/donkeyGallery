@@ -1,6 +1,6 @@
 /*!
  *
- *  donkeyGallery - [v1.0.0]
+ *  donkeyGallery - [v1.1.0]
  *  asynchronous ajax/php dynamic gallery
  *  webPage: http://factory.brainleaf.eu/donkeyGallery/
  *  githubPage: https://github.com/Gix075/donkeyGallery
@@ -201,6 +201,69 @@ ol.circle li.prev:after {
 ol.circle li.next:before {
    content: "";
 }
+
+/* fluid */
+/* this style is an "helper style" to make other styles fluid */
+/* ================================================================== */
+
+/* other styles resets for fluid adjustment */
+.fluid.squared.dnk-gallery-list li {
+    padding: 0!important;
+} 
+.fluid.squared li .innerbox {
+    padding: 20px;
+} 
+.fluid.tin-squared.dnk-gallery-list li {
+    padding: 0!important;
+} 
+.fluid.circle.dnk-gallery-list li {
+    padding: 0!important;
+    border-radius: 0!important;
+}
+.fluid.circle li .innerbox {
+    padding: 5px;
+}
+.fluid.circle li .innerbox img {
+    border-style: solid;
+    border-width: 6px;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;  
+	box-sizing: border-box;  
+}
+
+/* fluid common style */
+.fluid li {
+    background-color: transparent!important;
+    margin: 0;
+}
+.fluid li .innerbox {
+    margin: 5px;
+}
+
+.fluid li .innerbox img {
+    width: 100%;
+}
+
+.fluid-10 li {
+    width: 10%;
+}
+.fluid-20 li {
+    width: 20%;
+}
+.fluid-25 li {
+    width: 25%;
+}
+.fluid-33 li {
+    width: 33.3333%;
+}
+.fluid-50 li {
+    width: 50%;
+}
+.fluid-100 li {
+    width: 100%;
+}
+
+
 /* ################################################################## */
 /* COLORS */
 /* ################################################################## */
@@ -208,10 +271,16 @@ ol.circle li.next:before {
 
 /* black */
 /* ================================================================== */
-.black.dnk-gallery-list li {
+.black.dnk-gallery-list li,
+.black.fluid li .innerbox {
     background-color: #000;
 } 
-
+.black.circle.fluid li .innerbox {
+    background-color: transparent;
+} 
+.black.circle.fluid li .innerbox img {
+    border-color: #000;
+}
 ol.squared.black li,
 ol.tin-squared.black li,
 ol.circle.black li {
@@ -237,10 +306,16 @@ ol.circle.black li.active:hover {
 
 /* white */
 /* ================================================================== */
-.white.dnk-gallery-list li {
+.white.dnk-gallery-list li,
+.white.fluid li .innerbox {
     background-color: #fff;
 } 
-
+.white.circle.fluid li .innerbox {
+    background-color: transparent;
+} 
+.white.circle.fluid li .innerbox img {
+    border-color: #fff;
+}
 ol.squared.white li,
 ol.tin-squared.white li,
 ol.circle.white li {
@@ -266,10 +341,16 @@ ol.circle.white li.active:hover {
 
 /* gray */
 /* ================================================================== */
-.gray.dnk-gallery-list li {
+.gray.dnk-gallery-list li,
+.gray.fluid li .innerbox {
     background-color: #ccc;
 } 
-
+.gray.circle.fluid li .innerbox {
+    background-color: transparent;
+} 
+.gray.circle.fluid li .innerbox img {
+    border-color: #ccc;
+}
 ol.squared.gray li,
 ol.tin-squared.gray li,
 ol.circle.gray li {
