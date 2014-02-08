@@ -1,4 +1,4 @@
-donkeyGallery
+donkeyGallery (v1.1.0)
 =============
 
 **donkeyGallery** is an asynchronous ajax/php dynamic gallery with *pagination* and *fancybox* included, simple to install and use. With this tool you can create any galleries you want on the same site and on the same page.
@@ -34,6 +34,11 @@ $(document).on('ready', function(){
       style: "default", // this option define a gallery style
       color: "default", // this option define a style color
       
+      // fluid style (included from v1.1.0)
+      fluidStyle: {
+          active : false, // fluid style activation
+          columns: 4 // comun numbers for fluid grid (accepted 1,2,3,4,5,10)
+      },  
       // thumbnails settings
       thumbs: {
           thumbW: 150, // thumb width
