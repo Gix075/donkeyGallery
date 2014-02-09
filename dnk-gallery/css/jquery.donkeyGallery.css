@@ -1,6 +1,6 @@
 /*!
  *
- *  donkeyGallery - [v1.1.0]
+ *  donkeyGallery - [v1.1.1]
  *  asynchronous ajax/php dynamic gallery
  *  webPage: http://factory.brainleaf.eu/donkeyGallery/
  *  githubPage: https://github.com/Gix075/donkeyGallery
@@ -215,6 +215,12 @@ ol.circle li.next:before {
 } 
 .fluid.tin-squared.dnk-gallery-list li {
     padding: 0!important;
+} 
+.fluid.tin-squared li .innerbox {
+    margin: 0 5px 0 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px;
 } 
 .fluid.circle.dnk-gallery-list li {
     padding: 0!important;

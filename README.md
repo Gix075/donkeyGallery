@@ -1,4 +1,4 @@
-donkeyGallery (v1.1.0)
+donkeyGallery (v1.1.1)
 =============
 
 **donkeyGallery** is an asynchronous ajax/php dynamic gallery with *pagination* and *fancybox* included, simple to install and use. With this tool you can create any galleries you want on the same site and on the same page.
@@ -13,9 +13,9 @@ Install and Use
 In order to install **donkeyGallery** do the following steps:
 * unzip the download pack on your local disk
 * upload the directory **"dnk-gallery"** on your server, at the same level of your html page (when you want load some galleries)
-* include **dnk-gallery/css/jquery.donkeyGallery.pacjed.min.css** on your html page;
+* include **dnk-gallery/css/jquery.donkeyGallery.packed.min.css** on your html page;
 * include *jQuery* on your html page;
-* include **dnk-gallery/js/jquery.donkeyGallery.pacjed.min.js** on your html page;
+* include **dnk-gallery/js/jquery.donkeyGallery.packed.min.js** on your html page;
 * place one div for each gallery you want on your html page. Each div needs an univocal ID and must be leaved empty;
 * charge your images on **dnk-gallery/images/** and create one directory for each gallery you are charging;
 * initialize and configure your galleries by javascript

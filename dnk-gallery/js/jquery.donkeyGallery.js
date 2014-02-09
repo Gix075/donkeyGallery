@@ -1,6 +1,6 @@
 /*!
  *
- *  donkeyGallery - [v1.1.0]
+ *  donkeyGallery - [v1.1.1]
  *  asynchronous ajax/php dynamic gallery
  *  webPage: http://factory.brainleaf.eu/donkeyGallery/
  *  githubPage: https://github.com/Gix075/donkeyGallery
