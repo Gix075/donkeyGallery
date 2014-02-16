@@ -1,6 +1,6 @@
 /*!
  *
- *  donkeyGallery - [v1.1.1]
+ *  donkeyGallery - [v1.1.2]
  *  asynchronous ajax/php dynamic gallery
  *  webPage: http://factory.brainleaf.eu/donkeyGallery/
  *  githubPage: https://github.com/Gix075/donkeyGallery
@@ -376,5 +376,73 @@ ol.tin-squared.gray li.active:hover,
 ol.circle.gray li.active,
 ol.circle.gray li.active:hover {
     background-color: #999;
+    color: #fff;
+}
+
+/* magenta */
+/* ================================================================== */
+.magenta.dnk-gallery-list li,
+.magenta.fluid li .innerbox {
+    background-color: #FA075C;
+} 
+.magenta.circle.fluid li .innerbox {
+    background-color: transparent;
+} 
+.magenta.circle.fluid li .innerbox img {
+    border-color: #FA075C;
+}
+ol.squared.magenta li,
+ol.tin-squared.magenta li,
+ol.circle.magenta li {
+    background-color: #FA075C;
+    color: #555;
+    
+}
+ol.squared.magenta li:hover,
+ol.tin-squared.magenta li:hover,
+ol.circle.magenta li:hover {
+    background-color: #ff2f78;
+}
+ol.squared.magenta li.active,
+ol.squared.magenta li.active:hover,
+ol.tin-squared.magenta li.active,
+ol.tin-squared.magenta li.active:hover,
+ol.circle.magenta li.active,
+ol.circle.magenta li.active:hover {
+    background-color: #ff0059;
+    color: #fff;
+}
+
+/* cyan */
+/* ================================================================== */
+.cyan.dnk-gallery-list li,
+.cyan.fluid li .innerbox {
+    background-color: #04d9d9;
+} 
+.cyan.circle.fluid li .innerbox {
+    background-color: transparent;
+} 
+.cyan.circle.fluid li .innerbox img {
+    border-color: #04d9d9;
+}
+ol.squared.cyan li,
+ol.tin-squared.cyan li,
+ol.circle.cyan li {
+    background-color: #04d9d9;
+    color: #555;
+    
+}
+ol.squared.cyan li:hover,
+ol.tin-squared.cyan li:hover,
+ol.circle.cyan li:hover {
+    background-color: #15fafa;
+}
+ol.squared.cyan li.active,
+ol.squared.cyan li.active:hover,
+ol.tin-squared.cyan li.active,
+ol.tin-squared.cyan li.active:hover,
+ol.circle.cyan li.active,
+ol.circle.cyan li.active:hover {
+    background-color: #06e5e5;
     color: #fff;
 }

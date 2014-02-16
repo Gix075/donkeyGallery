@@ -1,4 +1,4 @@
-donkeyGallery (v1.1.1)
+donkeyGallery (v1.1.2)
 =============
 
 **donkeyGallery** is an asynchronous ajax/php dynamic gallery with *pagination* and *fancybox* included, simple to install and use. With this tool you can create any galleries you want on the same site and on the same page.
@@ -6,6 +6,11 @@ donkeyGallery (v1.1.1)
 Each gallery, once is configured, can be updated simply charging your new images on gallery dir. 
 
 To configure the gallery loading we provide a plugin that help you to create thumbnails, load images complitly dinamically and asynchronously. This makes your page loading faster!
+
+
+Last Update
+-------------
+**Version 1.1.2** - two more style colors added: *magenta* and *cyan*
 
 Install and Use
 ----------------
@@ -85,7 +90,7 @@ Styles and Colors
 ------------------
 On gallery plugin configuration you can use the following styles and colors:
 * STYLES: *squared* - *tin-squared* - *circle*
-* COLORS: *white* - *black* - *gray*
+* COLORS: *white* - *black* - *gray* - *magenta* - *cyan*
 
 Installation on sub-dir
 ------------------------
