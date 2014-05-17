@@ -12,6 +12,12 @@ Last Update
 -------------
 **Version 1.1.2** - two more style colors added: *magenta* and *cyan*
 
+History
+-------------
+**Version 1.1.1** - *fluid* style options added
+
+**Version 1.1.2** - two more style colors added: *magenta* and *cyan*
+
 Install and Use
 ----------------
 
