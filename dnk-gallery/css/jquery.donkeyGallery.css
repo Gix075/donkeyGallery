@@ -1,6 +1,6 @@
 /*!
  *
- *  donkeyGallery - [v1.1.2]
+ *  donkeyGallery - [v1.2.0]
  *  asynchronous ajax/php dynamic gallery
  *  webPage: http://factory.brainleaf.eu/donkeyGallery/
  *  githubPage: https://github.com/Gix075/donkeyGallery
@@ -8,7 +8,7 @@
  *  (c)2014 by BRAINLEAF Communication
  *  Made by Gildo Giuliani
  *  Released under MIT License
- *  Date: 31/01/2014
+ *  Date: 17/05/2014
  *
  *  Please, report any bugs at: https://github.com/Gix075/donkeyGallery/issues
  *
@@ -445,4 +445,48 @@ ol.circle.cyan li.active,
 ol.circle.cyan li.active:hover {
     background-color: #06e5e5;
     color: #fff;
+}
+
+
+/* ******************************************************************************** */
+/* MEDIA QUERIES 
+/* ******************************************************************************** */
+
+/* End ExtraLarge Desktop */
+@media only screen and (max-width:1979px) {
+    
+}
+
+/* End Large Desktop */
+@media only screen and (max-width:1599px) {
+
+}
+
+/* End Medium Desktop */
+@media only screen and (max-width:1279px) {
+
+}
+
+/* End Small Desktop & Landscape Tablet */
+@media only screen and (max-width:1023px) {
+
+}
+
+/* End Small Tablet */
+@media only screen and (max-width:859px) {
+
+}
+
+/* End Portrait Tablet */
+@media only screen and (max-width:767px) {
+
+}
+/* End Smartphone Landscape */
+@media only screen and (max-width:480px) {
+
+}
+
+/* End Portrait Phone */
+@media only screen and (max-width:320px) {
+    
 }

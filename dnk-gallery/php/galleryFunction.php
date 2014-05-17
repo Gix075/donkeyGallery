@@ -16,7 +16,7 @@ function imageList($dirname){
 }
 
 
-function thumbGenerate($imageName,$galleryPath,$thumbSizes,$root) {
+function thumbGenerate($imageName,$galleryPath,$thumbSizes,$root,$respThumb) {
 	$imageName = $root.$galleryPath.$imageName;
     $thumbDir = $root.$galleryPath.'thumb';
     if (!file_exists($thumbDir)) {
@@ -25,9 +25,15 @@ function thumbGenerate($imageName,$galleryPath,$thumbSizes,$root) {
 	$name = basename($imageName);
 	$image = imagecreatefromjpeg($imageName);
 	$filename = $root.$galleryPath.'thumb/thumb-'.$name;
+    
+    // update 1.1.3
+    if ($respThumb == TRUE) {
+        $name = basename($name,'.jpg');
+        $filename = $root.$galleryPath.'thumb/thumb-'.$name.'@2x.jpg';
+    }
 	
 	$thumb_width = $thumbSizes[0];
-	$thumb_height = $thumbSizes[0];
+	$thumb_height = $thumbSizes[1];
 	
 	$width = imagesx($image);
 	$height = imagesy($image);
@@ -86,13 +92,23 @@ function md5check($galleryPath,$root) {
     return $result;
 }
 
-function galleryGenerate($galleryPath,$forceGenerate,$thumbSizes,$elementId,$root) {
+function galleryGenerate($galleryPath,$forceGenerate,$thumbSizes,$elementId,$root,$responsive) {
     $md5check = md5check($galleryPath,$root);
 	$galleryImages = imageList($root.$galleryPath);
 	$galleryNumb = count($galleryImages);
 	for ($i=0; $i<$galleryNumb; $i++) {
 		if (($forceGenerate == 1) or (md5check == "changed")) {
-			thumbGenerate($galleryImages[$i],$galleryPath,$thumbSizes,$root);
+            $respThumb = FALSE;
+			thumbGenerate($galleryImages[$i],$galleryPath,$thumbSizes,$root,$respThumb);
+            //update 1.1.3
+            if ($responsive == TRUE) {
+                $respThumb = TRUE;
+                $respThumbW = $thumbSizes[0] * 2;
+                $respThumbH = $thumbSizes[1] * 2;
+                $respThumbSizes[] = $respThumbW;
+                $respThumbSizes[] = $respThumbH;
+                thumbGenerate($galleryImages[$i],$galleryPath,$respThumbSizes,$root,$respThumb);
+            }
 		}	
         $alt = $i+1;
 		$code['jsonFancy'][] = "<a href=\"".$galleryPath.$galleryImages[$i]."\"><img src=\"".$galleryPath."thumb/thumb-".$galleryImages[$i]."\" alt=\"Image ".$alt."\" /></a>";

@@ -1,6 +1,6 @@
 /*!
  *
- *  donkeyGallery - [v1.1.2]
+ *  donkeyGallery - [v1.2.0]
  *  asynchronous ajax/php dynamic gallery
  *  webPage: http://factory.brainleaf.eu/donkeyGallery/
  *  githubPage: https://github.com/Gix075/donkeyGallery
@@ -8,7 +8,7 @@
  *  (c)2014 by BRAINLEAF Communication
  *  Made by Gildo Giuliani
  *  Released under MIT License
- *  Date: 31/01/2014
+ *  Date: 17/05/2014
  *
  *  Please, report any bugs at: https://github.com/Gix075/donkeyGallery/issues
  *
@@ -27,20 +27,27 @@
                 fluidStyle: {
                     active : false,
                     columns: 4, // accepted 1,2,3,4,5,10
-                    resonsive: false
-                },    
+                    responsive: false,
+                    imgReplacement: false //need jQueryHDimg plugin
+                },
+                /*
+                responsive: {
+                    active: true,
+                    imgReplacement: false, 
+                }
+                */
                 thumbs: {
                     thumbW: 150,
                     thumbH: 150,
                     thumbsGen: false
                 },
                 fancybox : {
-                    active: true,
+                    active: true, //need fancyBox plugin
                     galleryGroup: "donkeyGallery",
                     linkClass: "dnk-gallery-link"
                 },
                 pagination: {
-                    active: true,
+                    active: true, //need paginate plugin
                     pageItems: 4
                     //controlsClass: "dnk-gallery-controls"
                 }
@@ -70,6 +77,8 @@
                         dataArr.gallerypath = settings.galleryPath;
                         dataArr.elementid = element.id;
                         dataArr.subdomain = settings.subdomain;
+                        // update 1.1.3
+                        dataArr.responsive = settings.fluidStyle.responsive;
                     
                     $.ajax({
                         url: settings.webservice,
@@ -112,13 +121,20 @@
                                 }// end switch
                                 
                             }
-
+                            
+                            // update 1.1.3
+                            if(settings.fluidStyle.responsive == true) {
+                                fluidClass = fluidClass + ' fluid-responsive';
+                            }
+                            
+                            // set fluid responsive gallery
                             var markup = '<div class="dnk-gallery">';
                             if (settings.fluidStyle.active == true) {
                                     markup += '<ul class="dnk-gallery-list fluid '+ fluidClass +'">';
                             }else{
-                                    markup += '<ul class="dnk-gallery-list">'
+                                    markup += '<ul class="dnk-gallery-list">';
                             }
+                            
                             switch (settings.fancybox.active) {
                                 case false:
                                     var count = Object.keys(data.jsonNoFancy).length;
@@ -143,9 +159,17 @@
                             }
                             $(element).find('a').addClass(settings.fancybox.linkClass);
                             $(element).find('a').attr('rel',settings.fancybox.galleryGroup);
+                            // Initialize FancyBox Plugin
                             $(element).find('a.'+ settings.fancybox.linkClass).fancybox();
                             
+                            // Initialize jQueryHDimg
+                            if(settings.fluidStyle.imgReplacement == true) {
+                                $(element).find('img').HDimg();
+                            }
+                            
+                            
                             if (settings.pagination.active == true) {
+                                // Initialize "easyPaginate" Plugin
                                 $(element).find('ul').easyPaginate({
                                     step:settings.pagination.pageItems,
                                     controls: 'pagination-'+element.id,

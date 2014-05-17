@@ -2137,6 +2137,11 @@
     };  
 
 })(jQuery);;/*!
+ *  jQueryHDimg - [v1.1.2]
+ *  a small plugin to serve double size image for Retina and other HD displays
+ *  http://factory.brainleaf.eu/jqueryHDimg
+ */
+!function(a,b){function c(b,c){this.element=b,this.settings=a.extend({},e,c),this._defaults=e,this._name=d,this.init()}var d="HDimg",e={densityLevel:1.25,imgReplacement:!0,imgSuffix:"@2x",addClass:!1,autoResize:!1,devForce:!1};c.prototype={init:function(){switch(this.settings.densityLevel){case 1.25:var a="(-webkit-min-device-pixel-ratio: 1.25),                                                (min-resolution: 1.25dppx)";break;case 1.3:var a="(-webkit-min-device-pixel-ratio: 1.3),                                                (min-resolution: 1.3dppx)";break;case 1.5:var a="(-webkit-min-device-pixel-ratio: 1.5),                                                (min-resolution: 1.5dppx)";break;case 2:var a="(-webkit-min-device-pixel-ratio: 2),                                                (min-resolution: 2dppx)"}var c=!1;if(b.devicePixelRatio>1||b.matchMedia&&b.matchMedia(a).matches)var c=!0;1==this.settings.devForce&&(c=!0),this.imgSubst(this.element,this.settings,c)},imgSubst:function(b,c,d){var e=c.imgReplacement,f=(c.densityLevel,c.imgSuffix),g=c.addClass,h=c.autoResize;if(1==e){var i=a(b).attr("src");if(!i)return console.log('HDimg -> ERROR: you have an error in plugin use! If you set the option "replacement" to "true" your image url must be declared by "src" attribute'),void 0}else{var i=a(b).data("src");if(!i)return console.log('HDimg -> ERROR: you have an error in plugin use! If you set the option "replacement" to "false" your image url must be declared by the "data-src" attribute'),void 0}var j=i.substr(i.lastIndexOf(".")),k=i.replace(j,f+j);if(1!=e||0!=d)if(1==e&&1==d){if(1==h){var l=[];l.push(b),a.each(l,function(){a(b).width(a(b).width()),a(b).height(a(b).height())})}a(b).attr("src",k),g!==!1&&g!==!0&&a(b).addClass(g),1==g&&a(b).addClass("hd-image")}else 0==e&&1==d?(a(b).attr("src",k),g!==!1&&g!==!0&&a(b).addClass(g),1==g&&a(b).addClass("hd-image")):0==e&&0==d&&a(b).attr("src",i)}},a.fn[d]=function(b){return this.each(function(){a.data(this,"plugin_"+d)||a.data(this,"plugin_"+d,new c(this,b))})}}(jQuery,window,document);;/*!
 <[BANNER.PLACEHOLDER]>
 */
 
@@ -2152,20 +2157,27 @@
                 fluidStyle: {
                     active : false,
                     columns: 4, // accepted 1,2,3,4,5,10
-                    resonsive: false
-                },    
+                    responsive: false,
+                    imgReplacement: false //need jQueryHDimg plugin
+                },
+                /*
+                responsive: {
+                    active: true,
+                    imgReplacement: false, 
+                }
+                */
                 thumbs: {
                     thumbW: 150,
                     thumbH: 150,
                     thumbsGen: false
                 },
                 fancybox : {
-                    active: true,
+                    active: true, //need fancyBox plugin
                     galleryGroup: "donkeyGallery",
                     linkClass: "dnk-gallery-link"
                 },
                 pagination: {
-                    active: true,
+                    active: true, //need paginate plugin
                     pageItems: 4
                     //controlsClass: "dnk-gallery-controls"
                 }
@@ -2195,6 +2207,8 @@
                         dataArr.gallerypath = settings.galleryPath;
                         dataArr.elementid = element.id;
                         dataArr.subdomain = settings.subdomain;
+                        // update 1.1.3
+                        dataArr.responsive = settings.fluidStyle.responsive;
                     
                     $.ajax({
                         url: settings.webservice,
@@ -2237,13 +2251,20 @@
                                 }// end switch
                                 
                             }
-
+                            
+                            // update 1.1.3
+                            if(settings.fluidStyle.responsive == true) {
+                                fluidClass = fluidClass + ' fluid-responsive';
+                            }
+                            
+                            // set fluid responsive gallery
                             var markup = '<div class="dnk-gallery">';
                             if (settings.fluidStyle.active == true) {
                                     markup += '<ul class="dnk-gallery-list fluid '+ fluidClass +'">';
                             }else{
-                                    markup += '<ul class="dnk-gallery-list">'
+                                    markup += '<ul class="dnk-gallery-list">';
                             }
+                            
                             switch (settings.fancybox.active) {
                                 case false:
                                     var count = Object.keys(data.jsonNoFancy).length;
@@ -2268,9 +2289,17 @@
                             }
                             $(element).find('a').addClass(settings.fancybox.linkClass);
                             $(element).find('a').attr('rel',settings.fancybox.galleryGroup);
+                            // Initialize FancyBox Plugin
                             $(element).find('a.'+ settings.fancybox.linkClass).fancybox();
                             
+                            // Initialize jQueryHDimg
+                            if(settings.fluidStyle.imgReplacement == true) {
+                                $(element).find('img').HDimg();
+                            }
+                            
+                            
                             if (settings.pagination.active == true) {
+                                // Initialize "easyPaginate" Plugin
                                 $(element).find('ul').easyPaginate({
                                     step:settings.pagination.pageItems,
                                     controls: 'pagination-'+element.id,

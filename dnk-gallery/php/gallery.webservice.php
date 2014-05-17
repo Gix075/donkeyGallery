@@ -2,7 +2,7 @@
 <?php
 /*!
  *
- *  donkeyGallery - [v1.1.2]
+ *  donkeyGallery - [v1.2.0]
  *  asynchronous ajax/php dynamic gallery
  *  webPage: http://factory.brainleaf.eu/donkeyGallery/
  *  githubPage: https://github.com/Gix075/donkeyGallery
@@ -10,7 +10,7 @@
  *  (c)2014 by BRAINLEAF Communication
  *  Made by Gildo Giuliani
  *  Released under MIT License
- *  Date: 31/01/2014
+ *  Date: 17/05/2014
  *
  *  Please, report any bugs at: https://github.com/Gix075/donkeyGallery/issues
  *
@@ -31,6 +31,7 @@
     $galleryPath = $_POST['gallerypath'];
     $elementId = $_POST['elementid'];
     $subdomainPath = $_POST['subdomain'];
+    $responsive = $_POST['responsive'];
 
     $root = $_SERVER['DOCUMENT_ROOT'];
     $root = $root.$subdomainPath;
@@ -39,7 +40,7 @@
     $thumbSizes[] = $thumbW;
     $thumbSizes[] = $thumbH;
     
-    $code = galleryGenerate($galleryPath,$forceGenerate,$thumbSizes,$elementId,$root);
+    $code = galleryGenerate($galleryPath,$forceGenerate,$thumbSizes,$elementId,$root,$responsive);
     
     $json = json_encode($code);
     echo $json;
