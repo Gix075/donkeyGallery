@@ -110,6 +110,10 @@ Helper Plugins
 ---------------
 donkeyGallery uses two third party plugins: **Fancybox 2.1.5** and **Easy Paginate 1.0**
 
+License Caveat
+---------------
+donkeyGallery license is valid only for gallery code and not for the helper plugins included. To use donkeyGallery on commercial products, check the plugin licenses on their official sites.
+
 HomePage
 ------------
 See more complete documentation and live examples at http://factory.brainleaf.eu/donkeyGallery/
