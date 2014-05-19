@@ -1,4 +1,4 @@
-donkeyGallery (v1.2.0)
+donkeyGallery (v1.2.1)
 =============
 
 **donkeyGallery** is an asynchronous ajax/php dynamic gallery with *pagination* and *fancybox* included, simple to install and use. With this tool you can create any galleries you want on the same site and on the same page.
