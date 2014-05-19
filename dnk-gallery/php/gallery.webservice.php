@@ -2,7 +2,7 @@
 <?php
 /*!
  *
- *  donkeyGallery - [v1.2.0]
+ *  donkeyGallery - [v1.2.1]
  *  asynchronous ajax/php dynamic gallery
  *  webPage: http://factory.brainleaf.eu/donkeyGallery/
  *  githubPage: https://github.com/Gix075/donkeyGallery
