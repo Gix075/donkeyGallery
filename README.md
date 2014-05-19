@@ -10,7 +10,7 @@ To configure the gallery loading we provide a plugin that help you to create thu
 
 Last Update
 -------------
-**Version 1.2.0** - **jQueryHDimg** plugin added and **responsive** features added
+**Version 1.2.1** -Bug fixed on *jquery.donkeyGallery.packed.min.css*
 
 History
 -------------
@@ -19,6 +19,8 @@ History
 **Version 1.1.2** - two more style colors added: *magenta* and *cyan*
 
 **Version 1.2.0** - **jQueryHDimg** plugin added and **responsive** features added
+
+**Version 1.2.1** -Bug fixed on *jquery.donkeyGallery.packed.min.css*
 
 Install and Use
 ----------------
