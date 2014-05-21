@@ -52,7 +52,7 @@ $(document).on('ready', function(){
       // fluid style (included from v1.1.0)
       fluidStyle: {
           active : false, // fluid style activation
-          columns: 4, // comun numbers for fluid grid (accepted 1,2,3,4,5,10)
+          columns: 4, // columns number for fluid grid (accepted 1,2,3,4,5,10)
           responsive: false,
           imgReplacement: false
       },  
